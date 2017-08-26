@@ -1,0 +1,3 @@
+1. psql: 致命错误:  用户 "54000" Password 认证失败
+   解决：psql -U postgres 然后根据提示输入密码即可登录成功
+   原因：使用psql --help发现 当且仅当输入psql的时候，实际是后面跟着缺省 用户名，就是本地PC的用户名，实际postgresql数据库里面根本没有这个用户；初始用户只有postgres而已；
