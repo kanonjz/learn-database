@@ -1,3 +1,5 @@
+# 表的名字有讲究，例如不能命名为user
+
 import psycopg2
 
 conn = psycopg2.connect(database = "testdb", user = "postgres", password = "123456", host = "127.0.0.1", port = "5432")
