@@ -87,6 +87,8 @@ public class HelloJDBC {
 			conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			// 3.执行SQL语句
 			ptmt = conn.prepareStatement("select * from info");
+			//设置每次从记录中取到内存中的条数
+			ptmt.setFetchSize(1);
 			rs = ptmt.executeQuery();
 			// 4.获取执行结果
 			while(rs.next()) {
