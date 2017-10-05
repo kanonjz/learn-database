@@ -20,7 +20,7 @@ public class HelloJDBC {
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-    // 1.装载驱动程序
+                // 1.装载驱动程序
 		Class.forName(JDBC_DRIVER);
 		// 2.建立数据库连接
 		try {
@@ -80,7 +80,7 @@ public class HelloJDBC {
 		ResultSet rs = null;
 		DB_URL = DB_URL + "?useCursorFetch=true";
 		
-    // 1.装载驱动程序
+                // 1.装载驱动程序
 		Class.forName(JDBC_DRIVER);
 		// 2.建立数据库连接
 		try {
