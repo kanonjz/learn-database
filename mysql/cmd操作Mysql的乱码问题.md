@@ -17,7 +17,7 @@ mysql> set character_set_results=gbk;
 
 ### 3. 查看表字段存储时的编码
 ```
-mysql> show full columns from 表名
+mysql> show full columns from 表名;
 ```
 
 ### 4. 查看数据库的编码
@@ -39,7 +39,7 @@ mysql> set names gbk;
 ok,大功告成，问题已解决
 
 ## 疑问
-到了最后，我们不禁有疑问，为啥cmd和mysql的编码不同，只有中文会出现乱码，而英文却没有乱码，emmmm这里就得移步关于编码另一个的问题  
+到了最后，我们不禁有疑问，为啥cmd和mysql的编码不同，只有中文会出现乱码，而英文却没有乱码，emmmm这里就得移步关于编码另一个的问题
 ![逼乎](https://www.zhihu.com/question/38500793?sort=created)
 
 ## 参考资料
