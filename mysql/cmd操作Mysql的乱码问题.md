@@ -1,4 +1,4 @@
-## 乱码问题
+# cmd操作Mysql的乱码问题
 ### 1. cmd插入中文数据时报如下错误
 ```
 mysql> insert into test1 (id, salary, name) values (6, 10, '小明');
@@ -26,17 +26,21 @@ mysql> show variables like '%character%';
 ```
 我们来看看没做任何修改前数据库中的编码<br><br>
 ![](http://oyrpkn4bk.bkt.clouddn.com/encode2.JPG)<br><br>
-可以清楚地看到对于`character_set_client`和`character_set_results`都默认为`utf8`，由于cmd的默认编码是`GBK`,直接导致了mysql无法识别中文字符以及传出到cmd的中文字符乱码！！！  
+可以清楚地看到对于`character_set_client`和`character_set_results`都默认为`utf8`，由于cmd的默认编码是`GBK`,直接导致了mysql无法识别中文字符以及传出到cmd的中文字符乱码！！！<br><br>
 既然我们知道了问题出现的原因，那么接下来就是
 
 ## 终极大招
 ```
 mysql> set names gbk;
 ```
-这一招相当于既解决了中文插入的问题，也解决了显示乱码的问题。    
+这一招相当于既解决了中文插入的问题，也解决了显示乱码的问题。<br><br>
 我们可以再来看看数据库中的编码信息<br><br>
 ![](http://oyrpkn4bk.bkt.clouddn.com/encode.JPG)<br><br>
 ok,大功告成，问题已解决
+
+## 疑问
+到了最后，我们不禁有疑问，为啥cmd和mysql的编码不同，只有中文会出现乱码，而英文却没有乱码，emmmm这里就得移步关于编码另一个的问题  
+![逼乎](https://www.zhihu.com/question/38500793?sort=created)
 
 ## 参考资料
 [10分钟学会理解和解决MySQL乱码问题](http://cenalulu.github.io/mysql/mysql-mojibake/)  
