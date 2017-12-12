@@ -1,9 +1,10 @@
-# cmd操作Mysql的乱码问题
 ### 1. cmd插入中文数据时报如下错误
 ```
 mysql> insert into test1 (id, salary, name) values (6, 10, '小明');
 ERROR 1366 (HY000): Incorrect string value: '\xC3\xF7' for column 'name' at row 1
 ```
+凡是出现1366 ERROR都是编码不匹配的问题，我在使用Workbench时也出现过这种情况
+
 ##### 解决：告诉mysql我这边的文字编码是GBK（cmd默认编码是GBK）
 ```
 mysql> set character_set_client=gbk;
