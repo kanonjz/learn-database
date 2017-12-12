@@ -40,6 +40,7 @@ mysql> set names gbk;
 ok,大功告成，问题已解决
 
 ## 修改配置文件
+Windows系统对应的配置文件为`my.ini`,Linux对应的为`my.cnf`
 **注意事项**:在修改字符集之前已经建立的数据库，character_set_database值不会发生改变，往数据库中插入中文数据仍然会显示乱码，所以最好在安装完MySQL后就将字符集改成utf8，否则后续修改会较麻烦。
 
 ## 疑问
