@@ -34,13 +34,29 @@ mysql> show variables like '%character%';
 ```
 mysql> set names gbk;
 ```
-这一招相当于既解决了中文插入的问题，也解决了显示乱码的问题。<br><br>
+这一招相当于既解决了中文插入的问题，也解决了显示乱码的问题。唯一的缺点就是每次连接断开后都会失效。<br><br>
 我们可以再来看看数据库中的编码信息<br><br>
 ![](http://oyrpkn4bk.bkt.clouddn.com/encode.JPG)<br><br>
 ok,大功告成，问题已解决
 
 ## 修改配置文件
-Windows系统对应的配置文件为`my.ini`,Linux对应的为`my.cnf`
+有时候数据库内部的编码`character_set_database`和`character_set_server`可能不是utf-8，这时候就需要去修改配置文件。
+
+Windows系统对应的配置文件为`my.ini`,Linux对应的为`my.cnf`。
+
+在[mysqld]下面添加两行
+```
+[mysqld]
+character-set-server = utf8
+collation-server = utf8_general_ci
+```
+
+重启mysql服务
+```
+service mysqld restart
+```
+
+搞定！
 
 **注意事项**: 在修改字符集之前已经建立的数据库，character_set_database值不会发生改变，往数据库中插入中文数据仍然会显示乱码，所以最好在安装完MySQL后就将字符集改成utf8，否则后续修改会较麻烦。
 
